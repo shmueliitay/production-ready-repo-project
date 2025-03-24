@@ -1,5 +1,11 @@
+# this is a test
 import pytest
+<<<<<<< Updated upstream
 from app import app
+=======
+from microservices.service2.app import app
+
+>>>>>>> Stashed changes
 
 @pytest.fixture
 def client():
