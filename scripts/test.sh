@@ -1,9 +1,7 @@
 #!/bin/bash
-<<<<<<< Updated upstream
-=======
 
 set -e  # Exit on any error
->>>>>>> Stashed changes
+
 
 # Run the tests for both services using pytest
 echo "Running tests for service1..."
