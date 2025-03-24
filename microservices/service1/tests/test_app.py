@@ -1,7 +1,8 @@
+# this is a test
 import pytest
-from microservices.service1.app import app
 
-#from ..app import app
+
+from microservices.service1.app import app
 
 
 @pytest.fixture

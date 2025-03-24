@@ -1,14 +1,24 @@
-#!/bin/bash
+
 #!/bin/bash
 set -e  # Exit on any error
 
+
 echo "Running tests for service1..."
+export PYTHONPATH=$(pwd)
 pytest microservices/service1/tests/
+#PYTHONPATH=microservices pytest microservices/service1/tests/
+#pytest microservices/service1/tests/
+
 
 echo "Running tests for service2..."
+export PYTHONPATH=$(pwd)
 pytest microservices/service2/tests/
+#PYTHONPATH=microservices pytest microservices/service2/tests/
+#pytest microservices/service2/tests/
+
 
 echo "All tests passed!"
+
 
 # Run the tests for both services using pytest
 #echo "Running tests for service1..."
