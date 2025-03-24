@@ -1,1 +1,45 @@
+
 name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies for Service 1
+        run: |
+          pip install -r microservices/service1/requirements.txt
+          pip install flake8 pytest
+
+      - name: Install dependencies for Service 2
+        run: |
+          pip install -r microservices/service2/requirements.txt
+
+      - name: Run flake8 lint on service1
+        run: flake8 microservices/service1/
+
+      - name: Run flake8 lint on service2
+        run: flake8 microservices/service2/
+
+      - name: Run tests for service1
+        run: pytest microservices/service1/tests/
+
+      - name: Run tests for service2
+        run: pytest microservices/service2/tests/
+
